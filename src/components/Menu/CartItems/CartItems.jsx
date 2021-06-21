@@ -2,8 +2,11 @@ import React from "react";
 import vegImg from "../../../assets/Menu/veg.png";
 import Buttons from "../IncrementDecrementButtons/Buttons";
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
-export default function CartItems({ data }) {
+export default function CartItems({ data ,price}) {
+
+
   return (
     <>
       {data.map((menu) => (
@@ -18,7 +21,7 @@ export default function CartItems({ data }) {
                 <span>{menu.item_name}</span>
               </div>
               <div className="col-4">
-                <Buttons />
+                <Buttons quantity={menu.quantity}/>
               </div>
               <div className="col-3 text-right">
                 <h6 className="">₹{menu.price}</h6>
@@ -28,20 +31,25 @@ export default function CartItems({ data }) {
         </div>
       ))}
       <br />
-      <br/>
+      <br />
       <div className="row">
         <div className="col-9">
           <h4>Subtotal</h4>
           <p>Extra charges may apply</p>
         </div>
         <div className="col-3 text-right">
-          <h5>₹123</h5>
+          <h5>₹{price}</h5>
         </div>
       </div>
-      <br/>
+      <br />
       <div className="row">
         <div className="col-12">
-          <button className="btn btn-success w-100">Checkout <ArrowRightAltIcon/></button>
+          <button className="btn btn-warning w-100">View Cart<AddShoppingCartIcon /></button>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-12">
+          <button className="btn btn-success w-100">Checkout <ArrowRightAltIcon /></button>
         </div>
       </div>
     </>

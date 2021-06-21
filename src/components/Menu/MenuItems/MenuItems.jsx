@@ -4,10 +4,7 @@ import "./menuItems.css";
 import menuImg from "../../../assets/Menu/Tikki.png";
 import Buttons from "../IncrementDecrementButtons/Buttons";
 
-export default function MenuItems({ data }) {
- 
-
-  
+export default function MenuItems({ data ,selectedMenu}) {
   return (
     <div className="row">
       <div className="container">
@@ -28,7 +25,7 @@ export default function MenuItems({ data }) {
           <div className="col-4 text-center">
             <img src={menuImg} className="menuImg mt-3" alt={data.item_name} />
            
-            <Buttons cartMenu={data} />
+            <Buttons cartMenu={data} selectedMenu={selectedMenu}/>
           </div>
         </div>
         <hr />
